@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Checkbox from "@mui/material/Checkbox";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import todoContext from "../../Context/todoContext";
+import { Box } from "@mui/material";
 
 // Component to display a single todo item
 const Todolistitems = ({ todo }) => {
@@ -19,13 +19,14 @@ const Todolistitems = ({ todo }) => {
       margin="0 30px"
     >
       {/* Checkbox to mark the completion status of the todo */}
-      <Checkbox
-        checked={todo.completed}
-        // onChange={handleChange}
-        // sx={checkboxStyle}
-        sx={{ flex: 1 }}
-        inputProps={{ "aria-label": "controlled" }}
-      />
+      <Box sx={{ flex: 1 }}>
+        <input
+          className="custom-checkbox"
+          type="checkbox"
+          style={inputStyle}
+          checked={todo.completed}
+        />
+      </Box>
 
       {/* Display the title of the todo */}
       <Typography variant="subtitle1" component="div" sx={{ width: "70%" }}>
@@ -41,5 +42,13 @@ const Todolistitems = ({ todo }) => {
   );
 };
 
+const inputStyle = {
+  width: "18px",
+  height: "18px",
+  border: "3px solid ",
+  background: "aqua",
+  color: "yellow",
+  boxShadow: "3px 3px 0px 0px rgba(0,0,0,1)",
+};
 // Export the Todolistitems component
 export default Todolistitems;
