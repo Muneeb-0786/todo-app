@@ -25,6 +25,7 @@ const TodoState = ({ children }) => {
       })
       .catch((error) => {
         console.error("Error fetching todos:", error);
+        alert("please run the json server");
       });
   };
   useEffect(() => {
